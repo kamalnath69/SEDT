@@ -9,22 +9,32 @@ const Menu = [
   {
     id: 1,
     name: 'Home',
-    link: '/#'
+    link: '/#',
+    desc: 'Home Page'
   },
   {
     id: 2,
     name: 'About',
-    link: '/#services'
+    link: '/#services',
+    desc: 'About Page'
   },
   {
     id: 3,
     name: 'Course',
-    link: '/#'
+    link: '/#',
+    desc: 'Course Page'
   },
   {
     id: 4,
+    name: 'Intern',
+    link: '/#',
+    desc: 'Intern Page'
+  },
+  {
+    id: 5,
     name: 'Contact',
-    link: '/#'
+    link: '/#',
+    desc: 'Contact Page'
   }
 ]
 
@@ -46,13 +56,14 @@ const Navbar = () => {
               href='#'
               className='font-bold text-3xl sm:text-5xl flex gap-2 items-center text--600 '
             >
-              <img src={Logo} alt='Logo' className='w-28 sm:w-26 ' />
+              <img src={Logo} alt='Logo' className='w-36 sm:w-26 ' />
+              <img src={seceLogo} alt='Logo' className='w-40 sm:w-26 ' />
             </a>
           </div>
 
           {/* poster image */}
           <div className='hidden sm:block'>
-            <img src={seceLogo} alt='SEDT Poster' className='w-32 h-auto' />
+            <img src={PosterImage} alt='SEDT Poster' className='w-80 h-auto' />
           </div>
         </div>
       </div>
@@ -63,9 +74,15 @@ const Navbar = () => {
             <li key={data.id} className='p-2'>
               <a
                 href={data.link}
-                className='inline-block px-4 duration-200 font-semibold'
+                className='relative inline-block px-4 duration-200 font-semibold hover:text-secondary '
               >
                 {data.name}
+                <div
+                  className='absolute 
+                 bg-white text-black p-4 rounded-md'
+                >
+                  <p className='text-sm'> {data.desc}</p>
+                </div>
               </a>
             </li>
           ))}
