@@ -1,8 +1,5 @@
 import React from 'react'
-import BannerImg from '../../assets/women/women2.jpg'
-import { GrSecure } from 'react-icons/gr'
-import { IoFastFood } from 'react-icons/io5'
-import { GiFoodTruck } from 'react-icons/gi'
+import BannerImg from '../../assets/hero/DTimg1.jpeg'
 
 const Banner = () => {
   return (
@@ -14,7 +11,7 @@ const Banner = () => {
             <img
               src={BannerImg}
               alt=''
-              className='max-w-[400px] h-[350px] w-full mx-auto drop-shadow-[-10px_10px_12px_rgba(0,0,0,1)] object-cover'
+              className='max-w-[350px] h-[500px] w-full mx-auto drop-shadow-[-10px_10px_12px_rgba(0,0,0,1)] object-cover'
             />
           </div>
 

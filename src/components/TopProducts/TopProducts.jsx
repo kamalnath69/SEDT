@@ -2,7 +2,6 @@ import React from 'react'
 import Img1 from '../../assets/women/agri.jpg'
 import Img2 from '../../assets/women/cinema.jpg'
 import Img3 from '../../assets/women/mini.png'
-import { FaStar } from 'react-icons/fa'
 
 const ProjectsData = [
   {
@@ -21,15 +20,16 @@ const ProjectsData = [
   },
   {
     id: 3,
-    img: Img3,
+    img: Img1,
     title: 'Mini drone',
     description:
       'lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
   }
 ]
+
 const TopProducts = () => {
   return (
-    <div>
+    <div className='mb-20'>
       <div className='container'>
         {/* Header section */}
         <div className='text-left mb-24'>

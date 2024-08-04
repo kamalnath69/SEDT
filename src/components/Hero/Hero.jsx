@@ -1,8 +1,8 @@
-import React from 'react'
-import Image1 from '../../assets/hero/droneImg1.png'
-import Image2 from '../../assets/hero/DTimg5.png'
-import Image3 from '../../assets/hero/women.png'
-import Slider from 'react-slick'
+import React from 'react';
+import Image1 from '../../assets/hero/droneImg1.png';
+import Image2 from '../../assets/hero/DTimg5.png';
+import Image3 from '../../assets/hero/women.jpg';
+import Slider from 'react-slick';
 
 const ImageList = [
   {
@@ -17,7 +17,7 @@ const ImageList = [
     img: Image2,
     title: 'We Are Here for You',
     description:
-      ' By offering a comprehensive curriculum, it aims to enhance your skills for agriculture, photography, videography, surveillance, mapping, inspection, public safety, and other aerial industrial solutions. The facility is equipped with state-of-the-art infrastructure to support theoretical knowledge, practical skills, and safety procedures required for remote pilot certification and operations.'
+      'By offering a comprehensive curriculum, it aims to enhance your skills for agriculture, photography, videography, surveillance, mapping, inspection, public safety, and other aerial industrial solutions. The facility is equipped with state-of-the-art infrastructure to support theoretical knowledge, practical skills, and safety procedures required for remote pilot certification and operations.'
   },
   {
     id: 3,
@@ -26,10 +26,15 @@ const ImageList = [
     description:
       'Immerse yourself in the fascinating world of drone technology with our comprehensive learning platform. Gain in-depth insights into various sectors of drone technology'
   }
-]
+];
+
+const events = [
+  { id: 1, name: 'Event 1', description: 'Details about event 1. This is an extended description to simulate a longer text. More details about the event.' },
+  { id: 2, name: 'Event 2', description: 'Details about event 2. This is an extended description to simulate a longer text. More details about the event are provided here to give a better understanding of what it is about. It continues to provide additional information and insights.' },
+];
 
 const Hero = () => {
-  var settings = {
+  const sliderSettings = {
     dots: false,
     arrows: false,
     infinite: true,
@@ -40,75 +45,92 @@ const Hero = () => {
     cssEase: 'ease-in-out',
     pauseOnHover: false,
     pauseOnFocus: true
-  }
+  };
 
   const handleRedirect = () => {
     window.location.href =
-      'https://docs.google.com/forms/d/e/1FAIpQLSdn-nYChP2cwu4UBoUvDLw4DjCcmD1INi0miLejTlu3V6zHgw/viewform'
-  }
+      'https://docs.google.com/forms/d/e/1FAIpQLSdn-nYChP2cwu4UBoUvDLw4DjCcmD1INi0miLejTlu3V6zHgw/viewform';
+  };
 
   return (
-    <div className='relative overflow-hidden min-h-[550px] sm:min-h-[650px] bg-gray-100 flex justify-center items-center dark:bg-gray-950 dark:text-white duration-200 '>
+    <div className='relative overflow-hidden min-h-[550px] sm:min-h-[650px] flex justify-center items-center dark:bg-gray-950 dark:text-white duration-200'>
       {/* background pattern */}
-      <div className='h-[700px] w-[700px] bg-primary absolute -top-1/2 right-0 rounded-3xl rotate-45 -z[8]'></div>
+      <div className='h-[700px] w-[700px] bg-primary absolute -top-1/2 right-0 rounded-3xl rotate-45 -z-10'></div>
       {/* hero section */}
-      <div className='container pb-8 sm:pb-0'>
-        <Slider {...settings}>
-          {ImageList.map((data) => (
-            <div key={data.id}>
-              <div className='grid grid-cols-1 sm:grid-cols-2'>
-                {/* text content section */}
-                <div className='flex flex-col justify-center gap-4 pt-12 sm:pt-0 text-center sm:text-left order-2 sm:order-1 relative z-10'>
-                  <h1
-                    data-aos='zoom-out'
-                    data-aos-duration='500'
-                    data-aos-once='true'
-                    className='text-5xl sm:text-6xl lg:text-7xl font-bold'
-                  >
-                    {data.title}
-                  </h1>
-                  <p
-                    data-aos='fade-up'
-                    data-aos-duration='500'
-                    data-aos-delay='100'
-                    className='text-sm'
-                  >
-                    {data.description}
-                  </p>
-                  <div
-                    data-aos='fade-up'
-                    data-aos-duration='500'
-                    data-aos-delay='300'
-                  >
-                    <button
-                      onClick={handleRedirect}
-                      className='bg-gradient-to-r from-primary to-secondary hover:scale-105 duration-200 text-white py-2 px-4 rounded-full'
+      <div className='container pb-8 sm:pb-0 grid grid-cols-1 lg:grid-cols-4 gap-4'>
+        {/* Main content */}
+        <div className='col-span-3'>
+          <Slider {...sliderSettings}>
+            {ImageList.map((data) => (
+              <div key={data.id}>
+                <div className='grid grid-cols-1 sm:grid-cols-2'>
+                  {/* text content section */}
+                  <div className='flex flex-col justify-center gap-4 pt-12 sm:pt-0 text-center sm:text-left order-2 sm:order-1 relative z-10'>
+                    <h1
+                      data-aos='zoom-out'
+                      data-aos-duration='500'
+                      data-aos-once='true'
+                      className='text-5xl sm:text-6xl lg:text-7xl font-bold'
                     >
-                      Register Now
-                    </button>
+                      {data.title}
+                    </h1>
+                    <p
+                      data-aos='fade-up'
+                      data-aos-duration='500'
+                      data-aos-delay='100'
+                      className='text-sm'
+                    >
+                      {data.description}
+                    </p>
+                    <div
+                      data-aos='fade-up'
+                      data-aos-duration='500'
+                      data-aos-delay='300'
+                    >
+                      <button
+                        onClick={handleRedirect}
+                        className='bg-gradient-to-r from-primary to-secondary hover:scale-105 duration-200 text-white py-2 px-4 rounded-full'
+                      >
+                        Register Now
+                      </button>
+                    </div>
                   </div>
-                </div>
-                {/* image section */}
-                <div className='order-1 sm:order-2'>
-                  <div
-                    data-aos='zoom-in'
-                    data-aos-once='true'
-                    className='relative z-10'
-                  >
-                    <img
-                      src={data.img}
-                      alt=''
-                      className='w-[300px] h-[300px] sm:h-[450px] sm:w-[450px] sm:scale-105 lg:scale-120 object-contain mx-auto'
-                    />
+                  {/* image section */}
+                  <div className='order-1 sm:order-2'>
+                    <div
+                      data-aos='zoom-in'
+                      data-aos-once='true'
+                      className='relative z-10'
+                    >
+                      <img
+                        src={data.img}
+                        alt=''
+                        className='w-[300px] h-[300px] sm:h-[450px] sm:w-[450px] sm:scale-105 lg:scale-120 object-contain mx-auto'
+                      />
+                    </div>
                   </div>
                 </div>
               </div>
+            ))}
+          </Slider>
+        </div>
+        {/* Events section */}
+        <div className='col-span-1 bg-white p-4 rounded-lg shadow-md border border-yellow-200'>
+          <h2 className='text-2xl font-bold text-blue-900 mb-2'>Events</h2>
+          <div className='scroll-container'>
+            <div className='scroll-text'>
+              {events.concat(events).map(event => (
+                <div key={event.id} className='p-4'>
+                  <h3 className='text-lg font-semibold'>{event.name}</h3>
+                  <p className='text-gray-700'>{event.description}</p>
+                </div>
+              ))}
             </div>
-          ))}
-        </Slider>
+          </div>
+        </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Hero
+export default Hero;

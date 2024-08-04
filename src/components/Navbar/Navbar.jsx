@@ -1,69 +1,67 @@
 import React from 'react'
 import Logo from '../../assets/logo.png'
-import { FaCaretDown } from 'react-icons/fa'
-import { FaUserPlus } from 'react-icons/fa' // Import a registration icon
-import DarkMode from './DarkMode'
-import PosterImage from '../../assets/women/SEDT-poster.jpeg' // Import the provided image
-import seceLogo from '../../assets/sece-logo.png'
+import iconImage from '../../assets/women/SEDT-poster.jpeg'
+import { Link } from 'react-scroll'
+
 const Menu = [
   {
     id: 1,
     name: 'Home',
-    link: '/#',
-    desc: 'Home Page'
+    link: 'home'
   },
   {
     id: 2,
     name: 'About',
-    link: '/#services',
-    desc: 'About Page'
+    link: 'about'
   },
   {
     id: 3,
     name: 'Course',
-    link: '/#',
-    desc: 'Course Page'
+    link: 'course'
   },
   {
     id: 4,
     name: 'Intern',
-    link: '/#',
+    link: 'intern',
     desc: 'Intern Page'
   },
   {
     id: 5,
+    name: 'RPC',
+    link: 'rpc',
+    desc: 'Something goes here'
+  },
+  {
+    id: 6,
     name: 'Contact',
-    link: '/#',
-    desc: 'Contact Page'
+    link: 'contact'
   }
 ]
 
-const DropdownLinks = []
-
 const Navbar = () => {
-  const handleRedirect = () => {
-    window.location.href =
-      'https://docs.google.com/forms/d/e/1FAIpQLSdn-nYChP2cwu4UBoUvDLw4DjCcmD1INi0miLejTlu3V6zHgw/viewform'
-  }
-
   return (
     <div className='shadow-md bg-white dark:bg-gray-900 dark:text-white duration-200 relative z-40'>
       {/* upper Navbar */}
-      <div className=' py-2'>
+      <div className='py-2'>
         <div className='container flex justify-between items-center'>
           <div className='flex items-center gap-2'>
             <a
               href='#'
               className='font-bold text-3xl sm:text-5xl flex gap-2 items-center text--600 '
             >
-              <img src={Logo} alt='Logo' className='w-36 sm:w-26 ' />
-              <img src={seceLogo} alt='Logo' className='w-40 sm:w-26 ' />
+              <img src={Logo} alt='Logo' className='w-20 sm:w-30 lg:w-40 h-auto' />
             </a>
+          </div>
+
+          <div className='flex flex-col items-center'>
+            <h1 className='text-center font-bold text-lg sm:text-2xl md:text-3xl lg:text-4xl text-blue-900'>
+              SEDT-DGCA Authorised Remote Pilot Training Organisation
+            </h1>
           </div>
 
           {/* poster image */}
           <div className='hidden sm:block'>
-            <img src={PosterImage} alt='SEDT Poster' className='w-80 h-auto' />
+            <img src={iconImage} alt='DGCA Icon' className='w-40 sm:w-60 lg:w-80 h-auto' />
           </div>
         </div>
       </div>
@@ -72,18 +70,15 @@ const Navbar = () => {
         <ul className='sm:flex hidden items-center gap-4 text-white'>
           {Menu.map((data) => (
             <li key={data.id} className='p-2'>
-              <a
-                href={data.link}
-                className='relative inline-block px-4 duration-200 font-semibold hover:text-secondary '
+              <Link
+                to={data.link}
+                smooth={true}
+                duration={500}
+                title={data.desc}
+                className={`relative inline-block px-4 duration-200 font-semibold cursor-pointer ${data.name === 'RPC' ? 'text-yellow-300 hover:text-yellow-500' : 'hover:text-secondary'}`}
               >
                 {data.name}
-                <div
-                  className='absolute 
-                 bg-white text-black p-4 rounded-md'
-                >
-                  <p className='text-sm'> {data.desc}</p>
-                </div>
-              </a>
+              </Link>
             </li>
           ))}
         </ul>
