@@ -125,14 +125,17 @@ const Hero = () => {
           </Slider>
         </div>
         {/* Events section */}
-        <div className='col-span-1 bg-white p-4 rounded-lg shadow-md border border-yellow-200 ml-9'>
+        <div className='col-span-1 p-4 rounded-lg shadow-lg bg-primary/10 dark:bg-gray-800 relative'>
           <h2 className='text-2xl font-bold text-blue-900 mb-2'>Events</h2>
-          <div className='scroll-container max-sm:h-[250px]'>
+          <div className='scroll-container max-sm:h-[250px] overflow-y-auto'>
             <div className='scroll-text'>
               {events.concat(events).map((event) => (
-                <div key={event.id} className='p-4'>
-                  <h3 className='text-lg font-semibold'>{event.name}</h3>
-                  <p className='text-gray-700'>{event.description}</p>
+                <div key={event.id} className='p-4 mb-4 flex flex-col gap-4 shadow-lg py-8 px-6 mx-4 rounded-xl dark:bg-gray-800 bg-primary/10 relative'>
+                  <h3 className='text-lg font-semibold text-black/80 dark:text-light'>{event.name}</h3>
+                  <p className='text-xs text-gray-500'>{event.description}</p>
+                  <p className='text-black/10 text-8xl font-serif absolute top-0 right-0'>
+                    !
+                  </p>
                 </div>
               ))}
             </div>
