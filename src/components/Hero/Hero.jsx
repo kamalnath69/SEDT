@@ -125,7 +125,7 @@ const Hero = () => {
           </Slider>
         </div>
         {/* Events section */}
-        <div className='col-span-1 bg-white p-4 rounded-lg shadow-md border border-yellow-200'>
+        <div className='col-span-1 bg-white p-4 rounded-lg shadow-md border border-yellow-200 ml-9'>
           <h2 className='text-2xl font-bold text-blue-900 mb-2'>Events</h2>
           <div className='scroll-container max-sm:h-[250px]'>
             <div className='scroll-text'>

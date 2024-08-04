@@ -44,7 +44,7 @@ const Navbar = () => {
       {/* upper Navbar */}
       <div className='py-2'>
         <div className='container flex justify-between items-center max-sm:flex-col'>
-          <div className='max-sm:flex max-sm:justify-between max-sm:w-full'>
+          <div className='flex justify-between w-full'>
             <div className='flex items-center gap-2'>
               <a
                 href='#'
@@ -57,7 +57,7 @@ const Navbar = () => {
                 />
               </a>
             </div>
-            <div className='flex items-center'>
+            <div className='flex items-center '>
               <div className='flex flex-col items-center'>
                 <h1 className='text-center font-bold max-sm:hidden max-md:text-lg max-lg:text-xl text-2xl text-blue-900 font-montserrat mx-8 max-md:mx-1 max-sm:mx-0'>
                   SEDT-DGCA Authorised Remote Pilot Training Organisation
@@ -83,7 +83,7 @@ const Navbar = () => {
       </div>
       {/* lower Navbar */}
       <div className='flex justify-center bg-primary'>
-        <ul className='flex  items-center gap-4 max-sm:gap-2 overflow-scroll text-white'>
+        <ul className='flex  items-center gap-4 max-sm:gap-2 max-sm:overflow-scroll max-sm:no-scrollbar text-white'>
           {Menu.map((data) => (
             <li key={data.id} className='p-2'>
               <Link

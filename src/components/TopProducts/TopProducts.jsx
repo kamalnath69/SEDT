@@ -32,18 +32,18 @@ const TopProducts = () => {
     <div className='mb-20'>
       <div className='container'>
         {/* Header section */}
-        <div className='text-left mb-24'>
+        <div className='text-left mb-32'>
           <h1 data-aos='fade-up' className='text-3xl font-bold'>
             Students Projects
           </h1>
         </div>
         {/* Body section */}
-        <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-20 md:gap-5 place-items-center'>
+        <div className='grid grid-cols-3 max-sm:grid-cols-1 gap-20 md:gap-5  place-items-center'>
           {ProjectsData.map((data) => (
             <div
               key={data.id}
               data-aos='zoom-in'
-              className='rounded-2xl bg-white dark:bg-gray-800 hover:bg-black/80 dark:hover:bg-primary hover:text-white relative shadow-xl duration-300 group max-w-[300px]'
+              className='rounded-2xl max-sm:m-4 bg-white dark:bg-gray-800 hover:bg-black/80 dark:hover:bg-primary hover:text-white relative shadow-xl duration-300 group max-w-[300px]'
             >
               {/* image section */}
               <div className='h-[100px]'>
