@@ -1,8 +1,8 @@
-import React from 'react';
-import Image1 from '../../assets/hero/droneImg1.png';
-import Image2 from '../../assets/hero/DTimg5.png';
-import Image3 from '../../assets/hero/women.jpg';
-import Slider from 'react-slick';
+import React from 'react'
+import Image1 from '../../assets/hero/droneImg1.png'
+import Image2 from '../../assets/hero/DTimg5.png'
+import Image3 from '../../assets/hero/women.jpg'
+import Slider from 'react-slick'
 
 const ImageList = [
   {
@@ -26,12 +26,22 @@ const ImageList = [
     description:
       'Immerse yourself in the fascinating world of drone technology with our comprehensive learning platform. Gain in-depth insights into various sectors of drone technology'
   }
-];
+]
 
 const events = [
-  { id: 1, name: 'Event 1', description: 'Details about event 1. This is an extended description to simulate a longer text. More details about the event.' },
-  { id: 2, name: 'Event 2', description: 'Details about event 2. This is an extended description to simulate a longer text. More details about the event are provided here to give a better understanding of what it is about. It continues to provide additional information and insights.' },
-];
+  {
+    id: 1,
+    name: 'Event 1',
+    description:
+      'Details about event 1. This is an extended description to simulate a longer text. More details about the event.'
+  },
+  {
+    id: 2,
+    name: 'Event 2',
+    description:
+      'Details about event 2. This is an extended description to simulate a longer text. More details about the event are provided here to give a better understanding of what it is about. It continues to provide additional information and insights.'
+  }
+]
 
 const Hero = () => {
   const sliderSettings = {
@@ -45,12 +55,12 @@ const Hero = () => {
     cssEase: 'ease-in-out',
     pauseOnHover: false,
     pauseOnFocus: true
-  };
+  }
 
   const handleRedirect = () => {
     window.location.href =
-      'https://docs.google.com/forms/d/e/1FAIpQLSdn-nYChP2cwu4UBoUvDLw4DjCcmD1INi0miLejTlu3V6zHgw/viewform';
-  };
+      'https://docs.google.com/forms/d/e/1FAIpQLSdn-nYChP2cwu4UBoUvDLw4DjCcmD1INi0miLejTlu3V6zHgw/viewform'
+  }
 
   return (
     <div className='relative overflow-hidden min-h-[550px] sm:min-h-[650px] flex justify-center items-center dark:bg-gray-950 dark:text-white duration-200'>
@@ -117,9 +127,9 @@ const Hero = () => {
         {/* Events section */}
         <div className='col-span-1 bg-white p-4 rounded-lg shadow-md border border-yellow-200'>
           <h2 className='text-2xl font-bold text-blue-900 mb-2'>Events</h2>
-          <div className='scroll-container'>
+          <div className='scroll-container max-sm:h-[250px]'>
             <div className='scroll-text'>
-              {events.concat(events).map(event => (
+              {events.concat(events).map((event) => (
                 <div key={event.id} className='p-4'>
                   <h3 className='text-lg font-semibold'>{event.name}</h3>
                   <p className='text-gray-700'>{event.description}</p>
@@ -130,7 +140,7 @@ const Hero = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Hero;
+export default Hero
