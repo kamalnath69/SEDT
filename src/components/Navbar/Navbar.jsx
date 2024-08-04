@@ -54,7 +54,7 @@ const Navbar = () => {
           </div>
 
           <div className='flex flex-col items-center'>
-            <h1 className='text-center font-bold text-lg sm:text-2xl md:text-3xl lg:text-4xl text-blue-900'>
+            <h1 className='text-center font-bold text-lg sm:text-2xl md:text-3xl lg:text-4xl text-blue-900 font-montserrat'>
               SEDT-DGCA Authorised Remote Pilot Training Organisation
             </h1>
           </div>

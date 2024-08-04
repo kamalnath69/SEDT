@@ -8,6 +8,9 @@ export default {
         primary: '#245eaa',
         secondary: '#FAC206 '
       },
+      fontFamily: {
+        montserrat: ['Montserrat', 'sans-serif'],
+      },
       container: {
         center: true,
         padding: {
