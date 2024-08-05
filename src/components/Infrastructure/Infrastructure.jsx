@@ -1,63 +1,70 @@
-import React, { useState } from 'react'
-import img1 from '../../assets/infrastructure/img1.jpg'
-import img2 from '../../assets/infrastructure/img2.jpg'
-import img3 from '../../assets/infrastructure/img3.jpg'
-import img4 from '../../assets/infrastructure/img4.jpg'
-import img5 from '../../assets/infrastructure/img5.jpg'
-import img6 from '../../assets/infrastructure/img6.jpg'
-import img7 from '../../assets/infrastructure/img7.jpg'
-import img8 from '../../assets/infrastructure/img8.jpg'
-import img9 from '../../assets/infrastructure/img9.jpg'
-import Modal from './Modal'
+import React, { useState } from 'react';
+import Slider from 'react-slick';
+import Modal from './Modal';
+import { IMAGE_URLS } from './imageUrls';
 
 const Infrastructure = () => {
-  const [selectedItem, setSelectedItem] = useState(null)
+  const [selectedItem, setSelectedItem] = useState(null);
 
   const InfrastructureData = [
     {
       id: 1,
       title: 'Think Area',
-      img: img1,
+      img: [IMAGE_URLS.thinkArea],
       desc: 'A dedicated think area designed for brainstorming and collaborative work.'
     },
     {
       id: 2,
       title: 'Campus Building',
-      img: [img9,img2],
+      img: IMAGE_URLS.campusBuilding,
       desc: 'The main building of our campus, designed with modern architecture.'
     },
     {
       id: 3,
       title: 'Drone Lab',
-      img: [img3, img4, img5],
+      img: IMAGE_URLS.droneLab,
       desc: 'Our drone lab where students get hands-on experience with the latest drone technology.'
     },
     {
       id: 4,
       title: 'Chat Corner',
-      img: img6,
-      desc: 'A cozy corner for students and staff to interact and chat freely.'
+      img: [IMAGE_URLS.chatCorner],
+      desc: 'A cozy corner for students and staff to interact and chat freely in a peaceful environment.'
     },
     {
-        id: 5,
-        title: 'Advanced Technologies',
-        img: [img7,img8],
-        desc: 'Advanced technologies to enhance research and education with cutting-edge UAV innovations.'
-      }
-  ]
+      id: 5,
+      title: 'Advanced Technologies',
+      img: IMAGE_URLS.advancedTechnologies,
+      desc: 'Advanced technologies to enhance research and education with cutting-edge UAV innovations.'
+    },
+    {
+      id: 6,
+      title: 'Professional Trainers',
+      img: IMAGE_URLS.professionalTrainers,
+      desc: 'Our professional trainers provide top-notch training and support to help students excel in their studies.'
+    }
+  ];
 
   const handleImageClick = (item) => {
-    setSelectedItem(item)
-  }
+    setSelectedItem(item);
+  };
 
   const closeModal = () => {
-    setSelectedItem(null)
-  }
+    setSelectedItem(null);
+  };
+
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    arrows: false,
+  };
 
   return (
     <div className='py-10 mb-10'>
       <div className='container'>
-        {/* header section */}
         <div className='text-center mb-10 max-w-[600px] mx-auto'>
           <h1 data-aos='fade-up' className='text-3xl font-bold'>
             Infrastructure
@@ -67,7 +74,6 @@ const Infrastructure = () => {
           </p>
         </div>
 
-        {/* Infrastructure cards */}
         <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6'>
           {InfrastructureData.map((data) => (
             <div className='my-6' key={data.id} data-aos='zoom-in'>
@@ -76,11 +82,25 @@ const Infrastructure = () => {
                 onClick={() => handleImageClick(data)}
               >
                 <div className='mb-4'>
-                  <img
-                    src={Array.isArray(data.img) ? data.img[0] : data.img}
-                    alt={data.title}
-                    className='rounded-lg w-full h-48 object-cover'
-                  />
+                  {data.img.length > 1 ? (
+                    <Slider {...settings}>
+                      {data.img.map((slide, index) => (
+                        <div key={index}>
+                          <img
+                            src={slide}
+                            alt={`${data.title} ${index + 1}`}
+                            className='rounded-lg w-full h-48 object-cover'
+                          />
+                        </div>
+                      ))}
+                    </Slider>
+                  ) : (
+                    <img
+                      src={data.img[0]}
+                      alt={data.title}
+                      className='rounded-lg w-full h-48 object-cover'
+                    />
+                  )}
                 </div>
                 <div className='flex flex-col items-center gap-4'>
                   <div className='space-y-3'>
@@ -100,7 +120,7 @@ const Infrastructure = () => {
         )}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Infrastructure
+export default Infrastructure;
