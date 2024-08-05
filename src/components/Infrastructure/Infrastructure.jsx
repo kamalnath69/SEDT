@@ -74,45 +74,90 @@ const Infrastructure = () => {
           </p>
         </div>
 
-        <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6'>
-          {InfrastructureData.map((data) => (
-            <div className='my-6' key={data.id} data-aos='zoom-in'>
-              <div
-                className='flex flex-col gap-4 shadow-lg py-8 px-6 mx-4 rounded-xl dark:bg-gray-800 bg-primary/10 relative cursor-pointer transform transition-transform hover:-translate-y-1'
-                onClick={() => handleImageClick(data)}
-              >
-                <div className='mb-4'>
-                  {data.img.length > 1 ? (
-                    <Slider {...settings}>
-                      {data.img.map((slide, index) => (
-                        <div key={index}>
-                          <img
-                            src={slide}
-                            alt={`${data.title} ${index + 1}`}
-                            className='rounded-lg w-full h-48 object-cover'
-                          />
-                        </div>
-                      ))}
-                    </Slider>
-                  ) : (
-                    <img
-                      src={data.img[0]}
-                      alt={data.title}
-                      className='rounded-lg w-full h-48 object-cover'
-                    />
-                  )}
-                </div>
-                <div className='flex flex-col items-center gap-4'>
-                  <div className='space-y-3'>
-                    <h1 className='text-xl font-bold text-black/80 dark:text-light'>
-                      {data.title}
-                    </h1>
-                    <p className='text-xs text-gray-500'>{data.desc}</p>
+        <div className='hidden sm:block'>
+          <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6'>
+            {InfrastructureData.map((data) => (
+              <div className='my-6' key={data.id} data-aos='zoom-in'>
+                <div
+                  className='flex flex-col gap-4 shadow-lg py-8 px-6 mx-4 rounded-xl dark:bg-gray-800 bg-primary/10 relative cursor-pointer transform transition-transform hover:-translate-y-1'
+                  onClick={() => handleImageClick(data)}
+                >
+                  <div className='mb-4'>
+                    {data.img.length > 1 ? (
+                      <Slider {...settings}>
+                        {data.img.map((slide, index) => (
+                          <div key={index}>
+                            <img
+                              src={slide}
+                              alt={`${data.title} ${index + 1}`}
+                              className='rounded-lg w-full h-48 object-cover'
+                            />
+                          </div>
+                        ))}
+                      </Slider>
+                    ) : (
+                      <img
+                        src={data.img[0]}
+                        alt={data.title}
+                        className='rounded-lg w-full h-48 object-cover'
+                      />
+                    )}
+                  </div>
+                  <div className='flex flex-col items-center gap-4'>
+                    <div className='space-y-3'>
+                      <h1 className='text-xl font-bold text-black/80 dark:text-light'>
+                        {data.title}
+                      </h1>
+                      <p className='text-xs text-gray-500'>{data.desc}</p>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
+        </div>
+
+        <div className='sm:hidden'>
+          <Slider {...settings}>
+            {InfrastructureData.map((data) => (
+              <div className='my-6' key={data.id} data-aos='zoom-in'>
+                <div
+                  className='flex flex-col gap-4 shadow-lg py-8 px-6 mx-4 rounded-xl dark:bg-gray-800 bg-primary/10 relative cursor-pointer transform transition-transform hover:-translate-y-1'
+                  onClick={() => handleImageClick(data)}
+                >
+                  <div className='mb-4'>
+                    {data.img.length > 1 ? (
+                      <Slider {...settings}>
+                        {data.img.map((slide, index) => (
+                          <div key={index}>
+                            <img
+                              src={slide}
+                              alt={`${data.title} ${index + 1}`}
+                              className='rounded-lg w-full h-48 object-cover'
+                            />
+                          </div>
+                        ))}
+                      </Slider>
+                    ) : (
+                      <img
+                        src={data.img[0]}
+                        alt={data.title}
+                        className='rounded-lg w-full h-48 object-cover'
+                      />
+                    )}
+                  </div>
+                  <div className='flex flex-col items-center gap-4'>
+                  <div className='space-y-3'>
+                      <h1 className='text-xl font-bold text-black/80 dark:text-light'>
+                        {data.title}
+                      </h1>
+                      <p className='text-xs text-gray-500'>{data.desc}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </Slider>
         </div>
 
         {selectedItem && (
@@ -124,3 +169,4 @@ const Infrastructure = () => {
 };
 
 export default Infrastructure;
+
