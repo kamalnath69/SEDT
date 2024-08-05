@@ -1,6 +1,8 @@
 // imageUrls.js
 export const IMAGE_URLS = {
-    thinkArea: 'https://firebasestorage.googleapis.com/v0/b/sedt-3ab84.appspot.com/o/img1.jpg?alt=media&token=508f83f6-cce2-453a-baf0-473ce687c649',
+    thinkArea: ['https://firebasestorage.googleapis.com/v0/b/sedt-3ab84.appspot.com/o/img1.jpg?alt=media&token=508f83f6-cce2-453a-baf0-473ce687c649',
+                'https://firebasestorage.googleapis.com/v0/b/sedt-3ab84.appspot.com/o/img15.jpg?alt=media&token=ad13393c-0594-4cf9-bb1d-e1dcbfaaef48'
+    ],
     campusBuilding: [
       'https://firebasestorage.googleapis.com/v0/b/sedt-3ab84.appspot.com/o/img2.jpg?alt=media&token=b146e84f-4f7f-42e1-aa2c-c96f64af10f6',
       'https://firebasestorage.googleapis.com/v0/b/sedt-3ab84.appspot.com/o/img9.jpg?alt=media&token=e1ec8260-97ca-4f2e-bca8-98beb11a370f'

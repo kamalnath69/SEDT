@@ -10,7 +10,7 @@ const Infrastructure = () => {
     {
       id: 1,
       title: 'Think Area',
-      img: [IMAGE_URLS.thinkArea],
+      img: IMAGE_URLS.thinkArea,
       desc: 'A dedicated think area designed for brainstorming and collaborative work.'
     },
     {
@@ -70,27 +70,7 @@ const Infrastructure = () => {
     pauseOnFocus: true,
     draggable: true,
     swipe: true,
-    touchMove: true,
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 1,
-          infinite: true,
-          dots: true
-        }
-      },
-      {
-        breakpoint: 640,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-          infinite: true,
-          dots: true
-        }
-      }
-    ]
+    touchMove: true
   };
 
   return (
@@ -106,21 +86,21 @@ const Infrastructure = () => {
         </div>
 
         <div className='hidden md:block'>
-          <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6'>
+          <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6'>
             {InfrastructureData.map((data) => (
-              <div className='my-6' key={data.id} data-aos='zoom-in'>
+              <div className='my-6 h-[400px]' key={data.id} data-aos='zoom-in'>
                 <div
-                  className='flex flex-col gap-4 shadow-lg py-8 px-6 mx-4 rounded-xl dark:bg-gray-800 bg-primary/10 relative cursor-pointer transform transition-transform hover:-translate-y-1'
+                  className='flex flex-col gap-2 shadow-lg py-8 px-6 mx-4 rounded-xl dark:bg-gray-800 bg-primary/10 relative cursor-pointer transform transition-transform hover:-translate-y-1 h-full flex flex-col'
                   onClick={() => handleItemClick(data)}
                 >
                   <div
-                    className='mb-4 slider-wrapper'
+                    className='mb-2 slider-wrapper flex-grow'
                     onClick={(e) => e.stopPropagation()} // Prevent click event from affecting parent
                     onTouchStart={handleSliderTouchStart} // Prevent touch event propagation
                   >
-                    {data.img.length > 1 ? (
-                      <Slider {...settings} className='slider'>
-                        {data.img.map((slide, index) => (
+                    <Slider {...settings} className='slider'>
+                      {Array.isArray(data.img) ? (
+                        data.img.map((slide, index) => (
                           <div key={index}>
                             <img
                               src={slide}
@@ -128,18 +108,20 @@ const Infrastructure = () => {
                               className='rounded-lg w-full h-48 object-cover'
                             />
                           </div>
-                        ))}
-                      </Slider>
-                    ) : (
-                      <img
-                        src={data.img[0]}
-                        alt={data.title}
-                        className='rounded-lg w-full h-48 object-cover'
-                      />
-                    )}
+                        ))
+                      ) : (
+                        <div>
+                          <img
+                            src={data.img}
+                            alt={data.title}
+                            className='rounded-lg w-full h-48 object-cover'
+                          />
+                        </div>
+                      )}
+                    </Slider>
                   </div>
                   <div className='flex flex-col items-center gap-4'>
-                    <div className='space-y-3'>
+                    <div className='space-y-2'>
                       <h1 className='text-xl font-bold text-black/80 dark:text-light'>
                         {data.title}
                       </h1>
@@ -155,19 +137,19 @@ const Infrastructure = () => {
         <div className='md:hidden'>
           <Slider {...settings} className='slider-container'>
             {InfrastructureData.map((data) => (
-              <div className='my-6' key={data.id} data-aos='zoom-in'>
+              <div className='my-6 h-[400px]' key={data.id} data-aos='zoom-in'>
                 <div
-                  className='flex flex-col gap-4 shadow-lg py-8 px-6 mx-4 rounded-xl dark:bg-gray-800 bg-primary/10 relative cursor-pointer transform transition-transform hover:-translate-y-1'
+                  className='flex flex-col gap-2 shadow-lg py-8 px-6 mx-4 rounded-xl dark:bg-gray-800 bg-primary/10 relative cursor-pointer transform transition-transform hover:-translate-y-1 h-full flex flex-col'
                   onClick={() => handleItemClick(data)}
                 >
                   <div
-                    className='mb-4 slider-wrapper'
+                    className='mb-2 slider-wrapper flex-grow'
                     onClick={(e) => e.stopPropagation()} // Prevent click event from affecting parent
                     onTouchStart={handleSliderTouchStart} // Prevent touch event propagation
                   >
-                    {data.img.length > 1 ? (
-                      <Slider {...settings} className='slider'>
-                        {data.img.map((slide, index) => (
+                    <Slider {...settings} className='slider'>
+                      {Array.isArray(data.img) ? (
+                        data.img.map((slide, index) => (
                           <div key={index}>
                             <img
                               src={slide}
@@ -175,18 +157,20 @@ const Infrastructure = () => {
                               className='rounded-lg w-full h-48 object-cover'
                             />
                           </div>
-                        ))}
-                      </Slider>
-                    ) : (
-                      <img
-                        src={data.img[0]}
-                        alt={data.title}
-                        className='rounded-lg w-full h-48 object-cover'
-                      />
-                    )}
+                        ))
+                      ) : (
+                        <div>
+                          <img
+                            src={data.img}
+                            alt={data.title}
+                            className='rounded-lg w-full h-48 object-cover'
+                          />
+                        </div>
+                      )}
+                    </Slider>
                   </div>
                   <div className='flex flex-col items-center gap-4'>
-                    <div className='space-y-3'>
+                    <div className='space-y-2'>
                       <h1 className='text-xl font-bold text-black/80 dark:text-light'>
                         {data.title}
                       </h1>
