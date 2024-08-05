@@ -18,30 +18,20 @@ const Menu = [
   },
   {
     id: 2,
-    name: 'About',
-    link: 'about'
-  },
-  {
-    id: 3,
     name: 'Course',
     link: 'course'
   },
   {
-    id: 4,
+    id: 3,
     name: 'Intern',
     link: 'intern',
     desc: 'Intern Page'
   },
   {
-    id: 5,
+    id: 4,
     name: 'RPC',
     link: 'rpc',
     desc: 'Something goes here'
-  },
-  {
-    id: 6,
-    name: 'Contact',
-    link: 'contact'
   }
 ]
 

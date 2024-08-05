@@ -33,6 +33,11 @@ const Menu = [
   },
   {
     id: 6,
+    name: 'Infrastructure',
+    link: 'infrastructure'
+  },
+  {
+    id: 7,
     name: 'Contact',
     link: 'contact'
   }
