@@ -60,6 +60,30 @@ const Infrastructure = () => {
     slidesToShow: 1,
     slidesToScroll: 1,
     arrows: false,
+    autoplay: false,
+    cssEase: 'linear',
+    pauseOnHover: true,
+    pauseOnFocus: true,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+          infinite: true,
+          dots: true
+        }
+      },
+      {
+        breakpoint: 640,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          infinite: true,
+          dots: true
+        }
+      }
+    ]
   };
 
   return (
@@ -74,7 +98,7 @@ const Infrastructure = () => {
           </p>
         </div>
 
-        <div className='hidden sm:block'>
+        <div className='hidden md:block'>
           <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6'>
             {InfrastructureData.map((data) => (
               <div className='my-6' key={data.id} data-aos='zoom-in'>
@@ -117,7 +141,7 @@ const Infrastructure = () => {
           </div>
         </div>
 
-        <div className='sm:hidden'>
+        <div className='md:hidden'>
           <Slider {...settings}>
             {InfrastructureData.map((data) => (
               <div className='my-6' key={data.id} data-aos='zoom-in'>
@@ -147,7 +171,7 @@ const Infrastructure = () => {
                     )}
                   </div>
                   <div className='flex flex-col items-center gap-4'>
-                  <div className='space-y-3'>
+                    <div className='space-y-3'>
                       <h1 className='text-xl font-bold text-black/80 dark:text-light'>
                         {data.title}
                       </h1>
@@ -169,4 +193,3 @@ const Infrastructure = () => {
 };
 
 export default Infrastructure;
-
