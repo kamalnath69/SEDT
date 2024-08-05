@@ -45,12 +45,16 @@ const Infrastructure = () => {
     }
   ];
 
-  const handleImageClick = (item) => {
+  const handleItemClick = (item) => {
     setSelectedItem(item);
   };
 
   const closeModal = () => {
     setSelectedItem(null);
+  };
+
+  const handleSliderTouchStart = (e) => {
+    e.stopPropagation(); // Prevent touch events on slider from affecting parent
   };
 
   const settings = {
@@ -64,6 +68,9 @@ const Infrastructure = () => {
     cssEase: 'linear',
     pauseOnHover: true,
     pauseOnFocus: true,
+    draggable: true,
+    swipe: true,
+    touchMove: true,
     responsive: [
       {
         breakpoint: 1024,
@@ -104,11 +111,15 @@ const Infrastructure = () => {
               <div className='my-6' key={data.id} data-aos='zoom-in'>
                 <div
                   className='flex flex-col gap-4 shadow-lg py-8 px-6 mx-4 rounded-xl dark:bg-gray-800 bg-primary/10 relative cursor-pointer transform transition-transform hover:-translate-y-1'
-                  onClick={() => handleImageClick(data)}
+                  onClick={() => handleItemClick(data)}
                 >
-                  <div className='mb-4'>
+                  <div
+                    className='mb-4 slider-wrapper'
+                    onClick={(e) => e.stopPropagation()} // Prevent click event from affecting parent
+                    onTouchStart={handleSliderTouchStart} // Prevent touch event propagation
+                  >
                     {data.img.length > 1 ? (
-                      <Slider {...settings}>
+                      <Slider {...settings} className='slider'>
                         {data.img.map((slide, index) => (
                           <div key={index}>
                             <img
@@ -142,16 +153,20 @@ const Infrastructure = () => {
         </div>
 
         <div className='md:hidden'>
-          <Slider {...settings}>
+          <Slider {...settings} className='slider-container'>
             {InfrastructureData.map((data) => (
               <div className='my-6' key={data.id} data-aos='zoom-in'>
                 <div
                   className='flex flex-col gap-4 shadow-lg py-8 px-6 mx-4 rounded-xl dark:bg-gray-800 bg-primary/10 relative cursor-pointer transform transition-transform hover:-translate-y-1'
-                  onClick={() => handleImageClick(data)}
+                  onClick={() => handleItemClick(data)}
                 >
-                  <div className='mb-4'>
+                  <div
+                    className='mb-4 slider-wrapper'
+                    onClick={(e) => e.stopPropagation()} // Prevent click event from affecting parent
+                    onTouchStart={handleSliderTouchStart} // Prevent touch event propagation
+                  >
                     {data.img.length > 1 ? (
-                      <Slider {...settings}>
+                      <Slider {...settings} className='slider'>
                         {data.img.map((slide, index) => (
                           <div key={index}>
                             <img
